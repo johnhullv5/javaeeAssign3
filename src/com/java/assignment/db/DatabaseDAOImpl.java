@@ -30,11 +30,11 @@ public class DatabaseDAOImpl implements DatabaseDAO {
 		} catch (ClassNotFoundException ex) {
 		}
 	}
-
+	//set URL, User, Password for My SQL
 	private Connection getConnection() throws SQLException {
 		return DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "admin");
 	}
-
+	//set Exception and close connection
 	private void closeConnection(Connection connection) {
 		if (connection == null)
 			return;
@@ -43,10 +43,11 @@ public class DatabaseDAOImpl implements DatabaseDAO {
 		} catch (SQLException ex) {
 		}
 	}
-
+	
+	 //method shows all user information 
 	@Override
 	public List<UserInfo> getAllUsers() {
-
+		//instantiate List to insert user Information 
 		List<UserInfo> results = new ArrayList<UserInfo>();
 
 		String sql = "select * from userInfo ";
@@ -71,6 +72,7 @@ public class DatabaseDAOImpl implements DatabaseDAO {
 
 	}
 
+	 //method to insert new user's information(name, password) into Database
 	@Override
 	public void insertUser(User user) {
 		
@@ -96,6 +98,7 @@ public class DatabaseDAOImpl implements DatabaseDAO {
 
 	}
 
+	//method to insert new user's all information into Database
 	@Override
 	public void inserYogaClass(YogaBean yogabean) {
 		String sql = "insert into yogaclass (username,realname,email,contactnumber,gender,age,timing,tutor,city) values(?,?,?,?,?,?,?,?,?);";
@@ -124,6 +127,7 @@ public class DatabaseDAOImpl implements DatabaseDAO {
 
 	}
 
+	//method to show user's information from yogaclass
 	@Override
 	public YogaBean getYogaBeanByUserName(String userName) {
 		List<YogaBean> results =  new ArrayList<YogaBean>();
@@ -167,7 +171,7 @@ public class DatabaseDAOImpl implements DatabaseDAO {
 			return null;
 		}
 	}
-
+	//method to delete user's information from yogaclass
 	@Override
 	public void deleteYogaBeanByUserName(String userName) {
 		String sql = "delete from yogaclass where username = ?";
@@ -189,7 +193,7 @@ public class DatabaseDAOImpl implements DatabaseDAO {
 	}
 	
 
-
+	 //method to update user information in yogaclass
 	@Override
 	public void updateYogaBean(YogaBean yogabean) {
 		String sql = "update yogaclass set realname=?,"+"email=?,"+"contactnumber=?,"+"gender=?,"+"age=?,"

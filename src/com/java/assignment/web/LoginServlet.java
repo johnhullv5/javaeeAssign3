@@ -83,7 +83,6 @@ public class LoginServlet extends HttpServlet {
 			switch (action) {
 			case "LoginServlet":
 				url = loginIntoSystem(request, response,base);
-				
 				break;
 			case "SignUpServlet":
 				url = base + "SignUp.html";
@@ -97,33 +96,6 @@ public class LoginServlet extends HttpServlet {
 		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher(url);
 		requestDispatcher.forward(request, response);
 
-		// if(request.getParameter("signIn")!=null)
-		// {
-		// if (dataLayer.containUser(username) &&
-		// dataLayer.checkPasswd(username, pass)) {
-		// Cookie loginCookie = new Cookie("user", username);
-		// loginCookie.setMaxAge(30 * 60);
-		// response.addCookie(loginCookie);
-		// //response.sendRedirect("DirectServlet");
-		// RequestDispatcher view=request.getRequestDispatcher("/Show.jsp");
-		// view.forward(request,response);
-		//
-		// } else {
-		// RequestDispatcher rd =
-		// getServletContext().getRequestDispatcher("/Login.html");
-		// PrintWriter out = response.getWriter();
-		// out.println("Invalid user name or password,maybe you need sign up.");
-		// rd.include(request, response);
-		// }
-		//
-		// }
-		//
-		// if(request.getParameter("signUp")!=null)
-		// {
-		// RequestDispatcher view=request.getRequestDispatcher("/SignUp.html");
-		// view.forward(request,response);
-		//
-		// }
 
 	}
 
@@ -139,15 +111,11 @@ public class LoginServlet extends HttpServlet {
 			if (users.keySet().contains(username)) {
 				if (pass.equals(users.get(username))) {
 					sc.setAttribute("username", username);
-//					RequestDispatcher view = request.getRequestDispatcher("Show.jsp");
-//					view.forward(request, response);
 					url = base + "Show.jsp";
 
 				} else {
 					PrintWriter out = response.getWriter();
 					out.println("your password is not correct.");
-//					RequestDispatcher rd = request.getRequestDispatcher("LoginForm.jsp");
-//					rd.include(request, response);
 					url = base + "LoginForm.jsp";
 
 				}
@@ -155,8 +123,6 @@ public class LoginServlet extends HttpServlet {
 			} else {
 				PrintWriter out = response.getWriter();
 				out.println("no username existed in our system.");
-//				RequestDispatcher rd = request.getRequestDispatcher("LoginForm.jsp");
-//				rd.include(request, response);
 				url = base + "LoginForm.jsp";
 			}
 

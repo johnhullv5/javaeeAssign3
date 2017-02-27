@@ -1,3 +1,15 @@
+<!-- 
+ *
+ * Copyright 2017 (C) <Centennial College> COMP303-assign3
+ * 
+ * Created on : 25-02-2017
+ * Author     : Chinatsu Kawakami (300821245)
+ *
+ *-----------------------------------------------------------------------------
+ * Revision History (Release 1.0.0.0)
+ *-----------------------------------------------------------------------------
+ *
+ -->
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" import="com.java.assignment.domain.YogaBean"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

@@ -15,7 +15,7 @@ import java.util.List;
 import com.java.assignment.domain.User;
 import com.java.assignment.domain.UserInfo;
 import com.java.assignment.domain.YogaBean;
-
+//Interface includes List and methods
 public interface DatabaseDAO {
 	
 	public List<UserInfo> getAllUsers();

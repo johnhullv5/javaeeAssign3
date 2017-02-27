@@ -59,6 +59,7 @@ public class JspViewController extends HttpServlet {
 		String url = base + "Show.jsp";
 		String action = request.getParameter("action");
 		if (action != null) {
+			//different event handling.
 			switch (action) {
 			case "OK&Logout":
 				url = base + "Logout.jsp";

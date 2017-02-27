@@ -55,8 +55,6 @@ public class YogaController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// doGet(request, response);
 		String action = request.getParameter("action");
 		System.out.println(action);
 		String base = "/";
@@ -75,6 +73,7 @@ public class YogaController extends HttpServlet {
 		rd.include(request, response);
 	}
 
+	//create one yoga class.
 	private void createYogaBean(HttpServletRequest request, HttpServletResponse response) {
 		YogaBean yogaBean = new YogaBean();
 		ServletContext sc = request.getServletContext();

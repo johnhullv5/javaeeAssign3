@@ -47,14 +47,6 @@ public class DirectServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// response.setContentType("text/html");
-		// PrintWriter out = response.getWriter();
-		// Cookie[] cks = request.getCookies();
-		// out.println("Welcome " + cks[0].getValue());
-
-		// RequestDispatcher view=request.getRequestDispatcher("Show.jsp");
-		// view.forward(request,response);
 		doPost(request, response);
 
 	}
@@ -65,9 +57,6 @@ public class DirectServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// doGet(request, response);
-
 		String base = "/";
 		String url = base + "Show.jsp";
 		String action = request.getParameter("action");
@@ -100,7 +89,7 @@ public class DirectServlet extends HttpServlet {
 		requestDispatcher.forward(request, response);
 
 	}
-	
+	//method to delete user information from YogaClass
 	private void deleteOneYogaClass(HttpServletRequest request, HttpServletResponse response)
 	{
 		ServletContext sc = request.getServletContext();
@@ -125,7 +114,7 @@ public class DirectServlet extends HttpServlet {
 	}
 
 	
-
+	//method to get yogabean by username.
 	private void findYogaClass(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ServletContext sc = request.getServletContext();

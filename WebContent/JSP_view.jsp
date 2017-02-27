@@ -1,3 +1,15 @@
+<!-- 
+ *
+ * Copyright 2017 (C) <Centennial College> COMP303-assign3
+ * 
+ * Created on : 25-02-2017
+ * Author     : Chinatsu Kawakami (300821245)
+ *
+ *-----------------------------------------------------------------------------
+ * Revision History (Release 1.0.0.0)
+ *-----------------------------------------------------------------------------
+ *
+ -->
 <%@ page language="java" import="com.java.assignment.domain.YogaBean" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,6 +23,7 @@
 <%! ServletContext sc;%>
 <% sc = request.getServletContext();%>
 <% bean = (YogaBean)sc.getAttribute("yogaBean");%>
+<jsp:useBean id="yogaBean" class="com.java.assignment.domain.YogaBean" scope="application" />
 
 
 <% if(bean==null){%>
@@ -22,32 +35,20 @@
 <% } 
 else {%>
   <div id="all" align="center">
-<%
-out.print("Welcome, "+bean.getName());%>
+
+<p>Welcome,${yogaBean.userName}</p>
+
+
 <br>
 <p>Your registration details are as follows:</p>
-<%
-out.print("Email Address:"+bean.getEmail()); %>
-<br>
-<% 
-out.print("Phone Number, "+bean.getContactNumber()); %>
-<br>
-<%
-out.print("Gender: "+bean.getGender()); %>
-<br>
-<%
-out.print("Age: "+bean.getAge()); %>
-<br>
-<% 
-out.print("Batch: "+bean.getTiming()); %>
-<br>
-<% 
-out.print("Yoga: "+bean.getTutor()); %>
-<br>
+<p>Email Address: ${yogaBean.email}</p>
+<p>Phone Number: ${yogaBean.contactNumber}</p>
+<p>Gender: ${yogaBean.gender}</p>
+<p>Age: ${yogaBean.age}</p>
+<p>Batch: ${yogaBean.timing}</p>
+<p>Yoga: ${yogaBean.tutor}</p>
+<p>City: ${yogaBean.cityName}</p>
 
-<% 
-out.print("City: "+bean.getCityName()); %>
-<br>
 
 
 
