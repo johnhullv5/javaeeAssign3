@@ -41,6 +41,7 @@ else {%>
 
 <br>
 <p>Your registration details are as follows:</p>
+<p>Name: ${yogaBean.realName}</p>
 <p>Email Address: ${yogaBean.email}</p>
 <p>Phone Number: ${yogaBean.contactNumber}</p>
 <p>Gender: ${yogaBean.gender}</p>

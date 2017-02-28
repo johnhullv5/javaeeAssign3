@@ -79,7 +79,7 @@ public class YogaController extends HttpServlet {
 		ServletContext sc = request.getServletContext();
 		String username = (String) sc.getAttribute("username");
 		yogaBean.setUserName(username);
-		yogaBean.setName(request.getParameter("name"));
+		yogaBean.setRealName(request.getParameter("name"));
 		yogaBean.setEmail(request.getParameter("email"));
 		yogaBean.setContactNumber(request.getParameter("contactNumber"));
 		yogaBean.setGender(request.getParameter("gender"));

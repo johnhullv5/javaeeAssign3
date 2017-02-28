@@ -26,10 +26,10 @@
 <% bean = (YogaBean)sc.getAttribute("yogaBean");%>
 
 <div id="all" align="center">
-<h1>Yoga Class Registration</h1>
+<h1>Please update Yoga Class Registration</h1>
 <br>
 <form action="JspViewController" method=post>
-<input type="text" value=<%= bean.getName()%> name="name" size=50/><br>
+<input type="text" value=<%= bean.getRealName()%> name="what" size=50/><br>
 <input type="text" value=<%= bean.getEmail()%> name="email" size=50/><br>
 <input type="text" value=<%= bean.getContactNumber() %> name="contactNumber" size=50/><br>
 <b>Gender</b><br>
@@ -54,7 +54,7 @@
 &thinsp;&thinsp;&thinsp;&thinsp;&thinsp;<input type="checkbox" name="course" value="Jivamukti" <% if(bean.getTutor().equals("Jivamukti")){out.print("checked=\"checked\"");}%>/>Jivamukti<br>
 &thinsp;&thinsp;&thinsp;<input type="checkbox" name="course" value="Kundlini" <% if(bean.getTutor().equals("Kundlini")){out.print("checked=\"checked\"");}%>/>Kundlini<br>
 <input type="text" value=<%= bean.getCityName().toString() %> name="city" size=50><br><br>
-<button type="submit" style="background-color:#f44336;color:white;" id="submitBTN" name="action" value="YogaController">Update Registration!</button>
+<button type="submit" style="background-color:#f44336;color:white;" id="submitBTN" name="action" value="UpdateRegistration">Update Registration!</button>
 <button type="submit" style="background-color:#4CAF50;color:white;" id="cancleBTN" align="left" name="action" value="CancleUpate">cancle</button>
 </form>
 </div>

@@ -14,7 +14,7 @@ public class YogaBean {
 	
 	private String userName;
 	
-	private String name;
+	private String realName;
 	
 	private String email;
 	
@@ -30,12 +30,12 @@ public class YogaBean {
 	
 	private String cityName;
 
-	public String getName() {
-		return name;
+	public String getRealName() {
+		return realName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setRealName(String name) {
+		this.realName = name;
 	}
 
 	public String getEmail() {
@@ -89,7 +89,7 @@ public class YogaBean {
 	@Override
 	public String toString() {
 		return "YogaBean [age=" + age + ", contactNumber=" + contactNumber + ", email=" + email + ", gender=" + gender
-				+ ", name=" + name + ", timing=" + timing + ", tutor=" + tutor + "]";
+				+ ", realName=" + realName + ", timing=" + timing + ", tutor=" + tutor + ", city=" + cityName +"]";
 	}
 
 	public String getUserName() {

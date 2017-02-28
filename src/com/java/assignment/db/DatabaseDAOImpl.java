@@ -108,7 +108,7 @@ public class DatabaseDAOImpl implements DatabaseDAO {
 			connection = getConnection();
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, yogabean.getUserName());
-			statement.setString(2, yogabean.getName());
+			statement.setString(2, yogabean.getRealName());
 			statement.setString(3, yogabean.getEmail());
 			statement.setString(4, yogabean.getContactNumber());
 			statement.setString(5, yogabean.getGender());
@@ -143,7 +143,7 @@ public class DatabaseDAOImpl implements DatabaseDAO {
 			while (resultSet.next()) {
 				YogaBean yogaClass = new YogaBean();
 				yogaClass.setUserName(resultSet.getString("username"));
-				yogaClass.setName(resultSet.getString("realname"));
+				yogaClass.setRealName(resultSet.getString("realname"));
 				yogaClass.setEmail(resultSet.getString("email"));
 				yogaClass.setGender(resultSet.getString("gender"));
 				yogaClass.setContactNumber(resultSet.getString("contactnumber"));
@@ -197,13 +197,21 @@ public class DatabaseDAOImpl implements DatabaseDAO {
 	@Override
 	public void updateYogaBean(YogaBean yogabean) {
 		String sql = "update yogaclass set realname=?,"+"email=?,"+"contactnumber=?,"+"gender=?,"+"age=?,"
-						+"timing=?,"+"tutor=? where username=?;";
+						+"timing=?,"+"tutor=?,"+"city=? where username=?;";
 		Connection connection = null;
 		
 		try {
 			connection = getConnection();
 			PreparedStatement statement = connection.prepareStatement(sql);
-			statement.setString(1, yogabean.getUserName());
+			statement.setString(1, yogabean.getRealName());
+			statement.setString(2, yogabean.getEmail());
+			statement.setString(3, yogabean.getContactNumber());
+			statement.setString(4, yogabean.getGender());
+			statement.setInt(5, yogabean.getAge());
+			statement.setString(6, yogabean.getTiming());
+			statement.setString(7, yogabean.getTutor());
+			statement.setString(8, yogabean.getCityName());
+			statement.setString(9, yogabean.getUserName());
 			statement.execute();
 
 		} catch (SQLException ex) {

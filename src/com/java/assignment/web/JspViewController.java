@@ -64,8 +64,9 @@ public class JspViewController extends HttpServlet {
 			case "OK&Logout":
 				url = base + "Logout.jsp";
 				break;
-			case "Update":
-				url = base + "Registration.jsp";
+			case "UpdateRegistration":
+				updateYogaClass(request, response);
+				//url = base + "Registration.jsp";
 				break;
 			case "Delete":
 				deleteOneYogaClass(request, response);
@@ -79,6 +80,36 @@ public class JspViewController extends HttpServlet {
 		rd.include(request, response);
 
 	}
+	//delete one yogaclass from database.
+		private void updateYogaClass(HttpServletRequest request, HttpServletResponse response) {
+			ServletContext sc = request.getServletContext();
+			String username = (String) sc.getAttribute("username");
+
+			try {
+				DatabaseDAO databaseDAO = new DatabaseDAOImpl();
+				YogaBean yogaBean = new YogaBean();
+				yogaBean.setUserName(username);
+				yogaBean.setRealName(request.getParameter("what"));
+				yogaBean.setEmail(request.getParameter("email"));
+				yogaBean.setContactNumber(request.getParameter("contactNumber"));
+				yogaBean.setGender(request.getParameter("gender"));
+				yogaBean.setAge(Integer.valueOf(request.getParameter("age")));
+				yogaBean.setTiming(request.getParameter("time"));
+				yogaBean.setTutor(request.getParameter("course"));
+				yogaBean.setCityName(request.getParameter("city"));
+				System.out.println(yogaBean.toString());
+				databaseDAO.updateYogaBean(yogaBean);
+
+				sc.setAttribute("yogaBean", yogaBean);
+
+				System.out.println("updateYogaClass done.");
+
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+		}
+	
+	
 
 	//delete one yogaclass from database.
 	private void deleteOneYogaClass(HttpServletRequest request, HttpServletResponse response) {
